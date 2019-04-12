@@ -16,7 +16,29 @@ val data = mapOf(
 )
 
 fun main() {
-    mapOf<>()
+    var invalidInputs=0
+    var validInputs=0
+    var sum=0
+
+    for (number in data.flatMap {it.value}){
+
+        if (number>=0){
+            validInputs++
+            sum+=number
+        }else invalidInputs++
+
+    }
+
+    println("Users age average is ${sum.toDouble().div(validInputs)}\n")
+
+
+    print("You have input faults in these maps:")
+    for ((key, value) in data) for (broj in value)if (broj<0) println(" $key")
+
+
+    println("\n I find $invalidInputs faulty entires.")
+
+
 
 }
 
